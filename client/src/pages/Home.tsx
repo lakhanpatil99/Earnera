@@ -3,7 +3,7 @@ import { useTasks } from "@/hooks/use-tasks";
 import { BottomNav } from "@/components/BottomNav";
 import { TaskCard } from "@/components/TaskCard";
 import { motion } from "framer-motion";
-import { Bell, Coins, Loader2 } from "lucide-react";
+import { Bell, Coins, Loader2, Info, Share2, Gift, PlayCircle, Calendar, Users, ClipboardList } from "lucide-react";
 import { useWallet } from "@/hooks/use-wallet";
 
 export default function Home() {
@@ -11,20 +11,35 @@ export default function Home() {
   const { data: tasks, isLoading: tasksLoading } = useTasks();
   const { data: wallet } = useWallet();
 
+  const banners = [
+    { text: "Earn up to ₹500 per day!", color: "from-blue-600 to-indigo-600" },
+    { text: "Invite friends & get bonus!", color: "from-purple-600 to-pink-600" },
+    { text: "New high-reward tasks added!", color: "from-emerald-600 to-teal-600" }
+  ];
+
   return (
-    <div className="mobile-container bg-neutral-50 pb-24">
+    <div className="mobile-container bg-neutral-50 pb-24 overflow-x-hidden">
       {/* Header */}
       <div className="bg-white px-6 pt-8 pb-6 rounded-b-[32px] shadow-sm border-b border-gray-100 sticky top-0 z-20">
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 rotate-3">
-            <Coins size={18} className="text-white" />
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 rotate-3">
+              <Coins size={18} className="text-white" />
+            </div>
+            <span className="font-black text-xl tracking-tight text-gray-900">Earnera</span>
           </div>
-          <span className="font-black text-xl tracking-tight text-gray-900">Earnera</span>
+          <button className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full text-xs font-bold text-gray-600 border border-gray-100 active:scale-95 transition-all">
+            <Share2 size={14} />
+            Share App
+          </button>
         </div>
         <div className="flex justify-between items-center mb-6">
-          <div>
-            <p className="text-gray-400 text-sm font-medium">Welcome back,</p>
-            <h1 className="text-2xl font-extrabold text-gray-800">{user?.name}</h1>
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 border-2 border-white shadow-sm overflow-hidden" />
+            <div>
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Welcome back,</p>
+              <h1 className="text-xl font-black text-gray-800 leading-tight">{user?.name}</h1>
+            </div>
           </div>
           <button className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100 text-gray-600 hover:bg-gray-100 transition-colors relative">
             <Bell size={20} />
@@ -58,12 +73,49 @@ export default function Home() {
         </motion.div>
       </div>
 
+      {/* Banners */}
+      <div className="mt-6 flex gap-4 overflow-x-auto px-6 no-scrollbar pb-2">
+        {banners.map((banner, i) => (
+          <div 
+            key={i} 
+            className={`min-w-[280px] p-4 rounded-2xl bg-gradient-to-r ${banner.color} text-white shadow-lg flex items-center justify-between overflow-hidden relative shrink-0`}
+          >
+             <div className="absolute right-0 top-0 opacity-10 -translate-y-1/4 translate-x-1/4">
+               <Gift size={80} />
+             </div>
+             <p className="font-black text-sm relative z-10">{banner.text}</p>
+             <button className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-black relative z-10">CLAIM</button>
+          </div>
+        ))}
+      </div>
+
+      {/* How to Earn */}
+      <div className="px-6 mt-8">
+        <h2 className="text-lg font-black text-gray-800 mb-4 flex items-center gap-2">
+          <Info size={20} className="text-primary" />
+          How to Earn?
+        </h2>
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            { label: "Watch Ads", icon: PlayCircle, color: "text-blue-500", bg: "bg-blue-50" },
+            { label: "Daily Bonus", icon: Calendar, color: "text-orange-500", bg: "bg-orange-50" },
+            { label: "Invite Friends", icon: Users, color: "text-purple-500", bg: "bg-purple-50" },
+            { label: "Complete Tasks", icon: ClipboardList, color: "text-emerald-500", bg: "bg-emerald-50" }
+          ].map((item, i) => (
+            <div key={i} className={`p-4 rounded-2xl ${item.bg} border border-white flex flex-col items-center text-center gap-2 shadow-sm`}>
+               <item.icon size={24} className={item.color} />
+               <span className="text-[10px] font-black text-gray-700 uppercase tracking-tight">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Task List */}
-      <div className="px-6 mt-6">
+      <div className="px-6 mt-8">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-bold text-gray-800">Available Tasks</h2>
-          <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-md">
-            {tasks?.length || 0} Tasks
+          <h2 className="text-lg font-black text-gray-800">Available Tasks</h2>
+          <span className="text-[10px] font-black text-primary bg-primary/10 px-2.5 py-1 rounded-full uppercase tracking-wider">
+            {tasks?.length || 0} Open
           </span>
         </div>
 

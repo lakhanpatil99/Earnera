@@ -1,0 +1,88 @@
+You are now acting as a senior product designer and Android UI engineer.
+
+Take the existing Earnera Android frontend project and upgrade it into a real-world earning app like TaskBucks, MPL, or RozDhan.
+
+This is still FRONTEND ONLY.
+Do NOT add backend.
+Use SharedPreferences for fake wallet.
+
+-----------------------------------
+🧩 1. ADD REFERRAL SYSTEM (UI)
+-----------------------------------
+In the Wallet screen:
+Add a new section above Withdraw:
+
+Title: "Invite & Earn"
+Card showing:
+- Referral code (fake)
+- Button: Copy Code
+- Button: Share on WhatsApp
+- Text: "Earn 50 coins per friend"
+
+Design it with gradient, icons, and card layout.
+
+-----------------------------------
+💰 2. IMPROVE WITHDRAW UI
+-----------------------------------
+Redesign Withdraw section:
+
+- Large stylish balance card
+- Slider to select coins to withdraw
+- Show ₹ conversion live
+- "Withdraw Now" button
+- Show UPI field (UI only)
+- Show "Processing..." animation when clicked
+
+-----------------------------------
+📄 3. ADD EARNING INSTRUCTIONS PANEL
+-----------------------------------
+On Home Screen:
+Add a "How to Earn" card:
+- Watch Ads
+- Daily Check-in
+- Invite Friends
+- Complete Tasks
+With icons and bullet layout
+
+-----------------------------------
+📤 4. ADD SHARE & PROMO BANNERS
+-----------------------------------
+Add scrolling banner on Home:
+"Earn up to ₹500 per day!"
+"Invite friends & get bonus!"
+
+Add Share button:
+"Share Earnera App"
+
+-----------------------------------
+🎨 5. FIX TASK INSTRUCTION UI
+-----------------------------------
+Redesign TaskInstructionActivity and TaskProgressActivity:
+
+Make them look like a real fintech earning flow:
+- Full screen gradient
+- Animated coins
+- Big reward display
+- Stylish instruction cards
+- Glowing Start button
+- Coin burst on completion
+
+-----------------------------------
+🧠 6. UI STYLE
+-----------------------------------
+Apply across app:
+- Rounded cards (24dp)
+- Soft shadows
+- Poppins / Inter fonts
+- Gradient buttons
+- Bottom navigation animation
+- Smooth transitions
+
+-----------------------------------
+⚠️ IMPORTANT
+-----------------------------------
+Do not remove existing logic.
+Do not break wallet or tasks.
+Only add features and UI layers.
+
+The final app should look like a Play Store–ready earning app.
