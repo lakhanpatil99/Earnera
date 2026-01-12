@@ -8,16 +8,6 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  // Simple session simulation
-  // In a real app, use express-session or JWT
-  // Here we'll just trust the client to send user ID for simplicity in this demo,
-  // or store it in a simple map. For now, let's just assume single user or use headers if we were strict.
-  // BUT, to keep it simple for the "no backend" feel, we will implement standard routes
-  // and maybe use a simple session cookie if needed, OR just return the user object and frontend stores ID.
-
-  // NOTE: For this "dummy" app, we will use a simple in-memory session map
-  const sessions = new Map<string, number>(); // sessionId -> userId
-
   app.post(api.auth.login.path, async (req, res) => {
     const { email, password } = req.body;
     const user = await storage.getUserByEmail(email);
