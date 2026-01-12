@@ -14,7 +14,13 @@ export default function Home() {
   return (
     <div className="mobile-container bg-neutral-50 pb-24">
       {/* Header */}
-      <div className="bg-white px-6 pt-12 pb-6 rounded-b-[32px] shadow-sm border-b border-gray-100 sticky top-0 z-20">
+      <div className="bg-white px-6 pt-8 pb-6 rounded-b-[32px] shadow-sm border-b border-gray-100 sticky top-0 z-20">
+        <div className="flex items-center gap-2 mb-4">
+          <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 rotate-3">
+            <Coins size={18} className="text-white" />
+          </div>
+          <span className="font-black text-xl tracking-tight text-gray-900">Earnera</span>
+        </div>
         <div className="flex justify-between items-center mb-6">
           <div>
             <p className="text-gray-400 text-sm font-medium">Welcome back,</p>
