@@ -1,0 +1,83 @@
+You are now acting as a senior UI/UX designer for a real earning startup app.
+
+Take the existing Earnera Android frontend project and redesign it into a modern, premium, highly attractive earning app UI.
+
+----------------------------------
+🎨 GLOBAL UI IMPROVEMENTS
+----------------------------------
+- Apply a consistent gradient theme (blue → purple → cyan)
+- Use modern Google Fonts (Poppins / Inter)
+- Use rounded CardViews (16dp – 24dp radius)
+- Add soft shadows and elevation
+- Add ripple touch effects
+- Add subtle animations on button click
+- Use proper spacing and padding like a real fintech app
+
+----------------------------------
+🚀 SPLASH SCREEN
+----------------------------------
+- Add animated logo
+- Gradient background
+- App name glowing effect
+- Add slogan: "Turn Your Time Into Money"
+
+----------------------------------
+🔐 LOGIN & REGISTER
+----------------------------------
+- Place input fields inside floating glass-style cards
+- Add icons inside text fields
+- Add password visibility toggle
+- Add loading animation on login
+- Use modern rounded buttons
+- Add smooth screen transitions
+
+----------------------------------
+🏠 HOME (TASK SCREEN)
+----------------------------------
+Redesign into a real earning app dashboard:
+
+- Add top header with user profile photo
+- Add a coin balance card with gradient background
+- Add animated coin icon
+- Tasks must be shown as stylish cards with:
+   • Task icon
+   • Task name
+   • Reward in coins
+   • Progress bar
+   • Start button with glow effect
+
+- Add "Daily Bonus" banner
+- Add swipe animations on task list
+
+----------------------------------
+💰 WALLET SCREEN
+----------------------------------
+- Big stylish coin counter
+- Convert coins to ₹ with animated number
+- Withdraw button with neon effect
+- Show recent transactions as cards
+
+----------------------------------
+👤 PROFILE SCREEN
+----------------------------------
+- User avatar
+- Edit profile button
+- Logout button with icon
+- App version info
+
+----------------------------------
+📱 UX IMPROVEMENTS
+----------------------------------
+- Bottom navigation with animation
+- Smooth screen transitions
+- Haptic feedback on button taps
+- Loading shimmer when switching screens
+
+----------------------------------
+IMPORTANT
+----------------------------------
+Do NOT change any backend logic.
+Do NOT remove existing screens.
+Only upgrade UI, layout, fonts, colors, spacing, animations, and components.
+
+The app should look like a real startup product like MPL, TaskBucks, or PhonePe earning app.
