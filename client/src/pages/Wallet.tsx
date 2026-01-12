@@ -1,7 +1,7 @@
 import { useWallet, useWithdraw } from "@/hooks/use-wallet";
 import { BottomNav } from "@/components/BottomNav";
 import { motion } from "framer-motion";
-import { ArrowDownLeft, ArrowUpRight, Wallet as WalletIcon, History, Loader2, Gift, Share2, Copy, Send } from "lucide-react";
+import { ArrowDownLeft, ArrowUpRight, Wallet as WalletIcon, History, Loader2, Gift, Share2, Copy, Send, Users } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Slider } from "@/components/ui/slider";
