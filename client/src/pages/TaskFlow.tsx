@@ -1,7 +1,7 @@
 import { useTasks, useCompleteTask } from "@/hooks/use-tasks";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Loader2, PlayCircle, ShieldCheck, Sparkles, TrendingUp, Zap, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, PlayCircle, Sparkles, TrendingUp, Zap, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -42,6 +42,14 @@ export default function TaskFlow() {
         setLocation("/home");
       }
     });
+  };
+
+  const startTask = () => {
+    if (task.description.toLowerCase().includes("video") || task.description.toLowerCase().includes("ad")) {
+      setLocation(`/ad?id=${task.id}`);
+    } else {
+      setStep("progress");
+    }
   };
 
   return (
@@ -123,7 +131,7 @@ export default function TaskFlow() {
               </div>
 
               <Button 
-                onClick={() => setStep("progress")}
+                onClick={startTask}
                 className="w-full h-16 rounded-2xl text-xl font-black bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_40px_rgba(16,185,129,0.3)] border-none"
               >
                 <PlayCircle className="mr-2 fill-current" />
@@ -192,16 +200,6 @@ export default function TaskFlow() {
             <h2 className="text-3xl font-black text-white mb-4 tracking-tight">
               Completing your task...
             </h2>
-            <div className="flex gap-1.5">
-              {[0, 1, 2].map(i => (
-                <motion.div
-                  key={i}
-                  animate={{ opacity: [0.3, 1, 0.3] }}
-                  transition={{ repeat: Infinity, duration: 1, delay: i * 0.2 }}
-                  className="w-2 h-2 bg-emerald-400 rounded-full"
-                />
-              ))}
-            </div>
           </motion.div>
         )}
 
@@ -236,30 +234,11 @@ export default function TaskFlow() {
 
               <Button 
                 onClick={handleComplete}
-                disabled={completeTask.isPending}
                 className="w-64 h-16 rounded-3xl text-xl font-black bg-white text-neutral-900 hover:bg-neutral-100 shadow-2xl active:scale-95 transition-all"
               >
-                {completeTask.isPending ? "Syncing..." : "CLAIM REWARD"}
+                CLAIM REWARD
               </Button>
             </motion.div>
-            
-            {/* Particle burst simulation */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              {[...Array(20)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ x: "50%", y: "50%", scale: 0 }}
-                  animate={{ 
-                    x: `${10 + Math.random() * 80}%`, 
-                    y: `${10 + Math.random() * 80}%`, 
-                    scale: [0, 1, 0],
-                    rotate: 360
-                  }}
-                  transition={{ duration: 1, repeat: Infinity, delay: Math.random() * 2 }}
-                  className="absolute w-2 h-2 bg-yellow-400 rounded-full"
-                />
-              ))}
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

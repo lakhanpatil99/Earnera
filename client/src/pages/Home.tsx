@@ -3,7 +3,7 @@ import { useTasks } from "@/hooks/use-tasks";
 import { BottomNav } from "@/components/BottomNav";
 import { TaskCard } from "@/components/TaskCard";
 import { motion } from "framer-motion";
-import { Bell, Coins, Loader2, Info, Share2, Gift, PlayCircle, Calendar, Users, ClipboardList } from "lucide-react";
+import { Bell, Coins, Loader2, Info, Share2, Gift, PlayCircle, Calendar, Users, ClipboardList, ShieldCheck, Heart, Headphones } from "lucide-react";
 import { useWallet } from "@/hooks/use-wallet";
 
 export default function Home() {
@@ -87,6 +87,30 @@ export default function Home() {
              <button className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-black relative z-10">CLAIM</button>
           </div>
         ))}
+      </div>
+
+      {/* Trusted Platform Badges */}
+      <div className="px-6 mt-8">
+        <div className="bg-white p-4 rounded-3xl border border-gray-100 flex items-center justify-around shadow-sm">
+          <div className="flex flex-col items-center gap-1">
+            <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <ShieldCheck size={20} />
+            </div>
+            <span className="text-[8px] font-black text-gray-500 uppercase tracking-widest">Secure</span>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
+              <Heart size={20} />
+            </div>
+            <span className="text-[8px] font-black text-gray-500 uppercase tracking-widest">10K+ Users</span>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <div className="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center">
+              <Headphones size={20} />
+            </div>
+            <span className="text-[8px] font-black text-gray-500 uppercase tracking-widest">24/7 Help</span>
+          </div>
+        </div>
       </div>
 
       {/* How to Earn */}

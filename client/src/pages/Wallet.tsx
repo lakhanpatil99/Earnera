@@ -24,6 +24,12 @@ export default function Wallet() {
     });
   };
 
+  const withdrawHistory = [
+    { id: 1, date: "2024-05-20", amount: 500, status: "Success", upi: "user@upi" },
+    { id: 2, date: "2024-05-18", amount: 200, status: "Pending", upi: "user@upi" },
+    { id: 3, date: "2024-05-15", amount: 1000, status: "Success", upi: "user@upi" },
+  ];
+
   const rupeeValue = walletData ? (walletData.balance / 100).toFixed(2) : "0.00";
   const selectedRupee = (withdrawAmount[0] / 100).toFixed(2);
 
@@ -142,6 +148,36 @@ export default function Wallet() {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="px-6 mt-10">
+        <h3 className="font-black text-gray-800 mb-4 flex items-center gap-2 uppercase text-xs tracking-[0.2em]">
+          <ArrowUpRight size={18} className="text-gray-400" />
+          Withdrawal History
+        </h3>
+        <div className="space-y-3">
+          {withdrawHistory.map((item) => (
+            <div key={item.id} className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400">
+                  <ArrowUpRight size={18} />
+                </div>
+                <div>
+                  <p className="font-black text-sm text-gray-800 leading-none mb-1">Withdraw to UPI</p>
+                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{item.date}</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="font-black text-base text-gray-800">₹{(item.amount / 100).toFixed(2)}</p>
+                <span className={`text-[8px] font-black uppercase tracking-widest ${
+                  item.status === 'Success' ? 'text-emerald-500' : 'text-yellow-500'
+                }`}>
+                  {item.status}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
