@@ -11,6 +11,7 @@ import Auth from "@/pages/Auth";
 import Home from "@/pages/Home";
 import Wallet from "@/pages/Wallet";
 import Profile from "@/pages/Profile";
+import TaskFlow from "@/pages/TaskFlow";
 import NotFound from "@/pages/not-found";
 
 // Protected Route Wrapper
@@ -49,6 +50,9 @@ function Router() {
       </Route>
       <Route path="/profile">
         <ProtectedRoute component={Profile} />
+      </Route>
+      <Route path="/task">
+        <ProtectedRoute component={TaskFlow} />
       </Route>
 
       <Route component={NotFound} />

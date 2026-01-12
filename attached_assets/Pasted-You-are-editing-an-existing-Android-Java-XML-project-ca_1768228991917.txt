@@ -1,0 +1,84 @@
+You are editing an existing Android (Java + XML) project called Earnera.
+
+The project already has:
+- HomeActivity
+- Task list (RecyclerView)
+- Start buttons on tasks
+- Coin system using SharedPreferences
+
+Your job is to ADD a real task flow system.
+
+--------------------------------
+STEP 1 — Create a new Activity
+--------------------------------
+Create:
+TaskInstructionActivity.java
+activity_task_instruction.xml
+
+UI must show:
+- Task icon
+- Task name
+- Reward coins
+- Instruction text
+- Button: "Start Task"
+
+Use Intent Extras:
+"task_name"
+"task_coins"
+
+--------------------------------
+STEP 2 — Create Task Progress Screen
+--------------------------------
+Create:
+TaskProgressActivity.java
+activity_task_progress.xml
+
+UI:
+- Circular progress bar
+- Text: "Completing task..."
+- After 5 seconds:
+   show "Task Completed!"
+   Add coins to SharedPreferences
+   Return to HomeActivity
+
+--------------------------------
+STEP 3 — Modify TaskAdapter
+--------------------------------
+In your RecyclerView Adapter where Start button exists:
+
+Replace current onClick with:
+
+Open TaskInstructionActivity
+Pass task name and task coins using Intent
+
+--------------------------------
+STEP 4 — TaskInstructionActivity logic
+--------------------------------
+When "Start Task" is pressed:
+Open TaskProgressActivity
+Pass same task name and coins
+
+--------------------------------
+STEP 5 — TaskProgressActivity logic
+--------------------------------
+OnCreate:
+- Read coins from Intent
+- Wait 5 seconds using Handler
+- Add coins to SharedPreferences
+- Show Toast "You earned X coins"
+- Finish and return to HomeActivity
+
+--------------------------------
+STEP 6 — Home Refresh
+--------------------------------
+On HomeActivity onResume():
+Reload coin value from SharedPreferences
+Update UI
+
+--------------------------------
+IMPORTANT RULES
+--------------------------------
+- Do NOT remove any existing UI
+- Do NOT break login or wallet
+- Only add new activities and update Start button behavior
+- All code must compile without errors
