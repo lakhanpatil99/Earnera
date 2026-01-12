@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, PlayCircle, Sparkles, TrendingUp, Zap, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import confetti from "canvas-confetti";
 
 export default function TaskFlow() {
   const { data: tasks } = useTasks();
@@ -24,7 +25,15 @@ export default function TaskFlow() {
         setProgress(prev => {
           if (prev >= 100) {
             clearInterval(interval);
-            setTimeout(() => setStep("completed"), 500);
+            setTimeout(() => {
+              setStep("completed");
+              confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ["#34d399", "#fbbf24", "#3b82f6"]
+              });
+            }, 500);
             return 100;
           }
           return prev + 5;
