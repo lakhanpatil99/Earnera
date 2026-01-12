@@ -14,6 +14,7 @@ import Profile from "@/pages/Profile";
 import TaskFlow from "@/pages/TaskFlow";
 import KYC from "@/pages/KYC";
 import FakeAd from "@/pages/FakeAd";
+import WithdrawSuccess from "@/pages/WithdrawSuccess";
 import NotFound from "@/pages/not-found";
 
 // Protected Route Wrapper
@@ -61,6 +62,9 @@ function RouterContent() {
       </Route>
       <Route path="/ad">
         <ProtectedRoute component={FakeAd} />
+      </Route>
+      <Route path="/withdraw-success">
+        <ProtectedRoute component={WithdrawSuccess} />
       </Route>
 
       <Route component={NotFound} />

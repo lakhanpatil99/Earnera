@@ -5,10 +5,12 @@ import { ArrowDownLeft, ArrowUpRight, Wallet as WalletIcon, History, Loader2, Gi
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Slider } from "@/components/ui/slider";
+import { useLocation } from "wouter";
 
 export default function Wallet() {
   const { data: walletData, isLoading } = useWallet();
   const withdraw = useWithdraw();
+  const [, setLocation] = useLocation();
   const [withdrawOpen, setWithdrawOpen] = useState(false);
   const [withdrawAmount, setWithdrawAmount] = useState([100]);
   const [upiId, setUpiId] = useState("");
@@ -18,6 +20,10 @@ export default function Wallet() {
     withdraw.mutate(withdrawAmount[0], {
       onSuccess: () => {
         setWithdrawOpen(false);
+        // Simulate processing delay
+        setTimeout(() => {
+          setLocation(`/withdraw-success?amount=${withdrawAmount[0]}&upi=${encodeURIComponent(upiId)}`);
+        }, 500);
         setWithdrawAmount([100]);
         setUpiId("");
       }
