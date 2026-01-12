@@ -1,7 +1,7 @@
 import { Task } from "@shared/schema";
 import { motion } from "framer-motion";
-import { CheckCircle2, Play, Coins } from "lucide-react";
-import { useCompleteTask } from "@/hooks/use-tasks";
+import { Play, Coins } from "lucide-react";
+import { useLocation } from "wouter";
 
 interface TaskCardProps {
   task: Task;
@@ -9,10 +9,10 @@ interface TaskCardProps {
 }
 
 export function TaskCard({ task, index }: TaskCardProps) {
-  const completeTask = useCompleteTask();
+  const [, setLocation] = useLocation();
 
   const handleStart = () => {
-    completeTask.mutate(task.id);
+    setLocation(`/task?id=${task.id}`);
   };
 
   const IconWrapper = ({ type }: { type: string }) => {
@@ -56,16 +56,9 @@ export function TaskCard({ task, index }: TaskCardProps) {
 
           <button
             onClick={handleStart}
-            disabled={completeTask.isPending}
-            className="flex items-center gap-1 bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg shadow-primary/20 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-1 bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg shadow-primary/20 active:scale-95 transition-all"
           >
-            {completeTask.isPending ? (
-              "..."
-            ) : (
-              <>
-                Start <Play size={10} className="fill-current" />
-              </>
-            )}
+            Start <Play size={10} className="fill-current" />
           </button>
         </div>
       </div>
