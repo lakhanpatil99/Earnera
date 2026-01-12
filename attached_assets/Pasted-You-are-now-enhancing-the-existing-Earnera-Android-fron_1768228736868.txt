@@ -1,0 +1,83 @@
+You are now enhancing the existing Earnera Android frontend project.
+
+Add a professional Task Flow system for all tasks so that when the user clicks on any task (like Watch Video Ad, Daily Check-in, Install App, Survey), it opens a new Instruction screen before completing the task.
+
+--------------------------------------
+🎯 TASK FLOW DESIGN
+--------------------------------------
+
+When user taps "Start" on any task:
+Open a new Activity called TaskInstructionActivity.
+
+This screen should contain:
+- Task Icon
+- Task Title
+- Coins Reward
+- Step-by-step instructions
+- A big button: "Start Task"
+- Beautiful UI with card, gradient, rounded corners
+
+--------------------------------------
+📄 Example Instructions
+
+For "Watch Video Ad":
+• Click the button below  
+• Watch the full video  
+• Do not close the app  
+• Coins will be added after video finishes  
+
+For "Daily Check-in":
+• Login once per day  
+• Click the button  
+• Collect your daily reward  
+
+For "Install App":
+• Click button  
+• Redirect (fake)  
+• Return to app  
+• Claim reward  
+
+--------------------------------------
+▶ When user clicks "Start Task"
+--------------------------------------
+Open a second screen called TaskProgressActivity.
+
+This screen should:
+- Show loading animation
+- Show progress bar (fake)
+- Show text: "Please complete the task..."
+- After 5 seconds → Show "Task Completed!"
+- Automatically add coins to wallet (SharedPreferences)
+- Return to Home screen
+
+--------------------------------------
+🎨 UI STYLE
+--------------------------------------
+- Use full screen modern layout
+- Glassmorphism cards
+- Gradient backgrounds
+- Big icons
+- Smooth transitions
+- Coin animation when reward is added
+
+--------------------------------------
+🧠 Logic
+--------------------------------------
+- Pass task name + reward coins using Intent
+- On completion:
+   coins = coins + reward
+   Save in SharedPreferences
+   Refresh Home UI
+
+--------------------------------------
+⚠️ Important
+--------------------------------------
+Do NOT use backend
+Do NOT use ads SDK
+Simulate everything with animations & timers
+Keep it frontend-only
+
+--------------------------------------
+Result:
+The app should feel like a real earning app like TaskBucks or RozDhan where user:
+Home → Task → Instruction → Progress → Reward → Back to Home

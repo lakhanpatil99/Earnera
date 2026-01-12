@@ -10,6 +10,12 @@ const httpServer = createServer(app);
 
 const SessionStore = MemoryStore(session);
 
+declare module "express-session" {
+  interface SessionData {
+    userId: number;
+  }
+}
+
 app.use(
   session({
     cookie: { maxAge: 86400000 },

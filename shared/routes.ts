@@ -1,5 +1,8 @@
 import { z } from 'zod';
-import { insertUserSchema, insertTaskSchema, insertTransactionSchema, users, tasks, transactions, type InsertUser, type LoginRequest } from './schema';
+import { insertUserSchema, insertTaskSchema, insertTransactionSchema, users, tasks, transactions } from './schema';
+import type { InsertUser, LoginRequest } from './schema';
+
+export type { InsertUser, LoginRequest };
 
 export const errorSchemas = {
   validation: z.object({
