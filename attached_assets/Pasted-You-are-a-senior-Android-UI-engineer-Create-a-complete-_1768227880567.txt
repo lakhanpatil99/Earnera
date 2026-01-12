@@ -1,0 +1,105 @@
+You are a senior Android UI engineer.
+
+Create a complete Android application named "Earnera" using Java and XML in Android Studio style.
+
+⚠️ IMPORTANT:
+- This is FRONTEND ONLY
+- No backend
+- No database
+- Use only dummy data
+- Use SharedPreferences for fake login session
+
+App goal:
+This is a "Task & Earn Coins" app like TaskBucks, RozDhan, MPL etc.
+
+------------------------------------
+📱 SCREENS REQUIRED
+------------------------------------
+
+1️⃣ Splash Screen
+- App logo in center
+- Gradient background
+- App name: "Earnera – Earn Real Rewards"
+- Auto move to Login after 2 seconds
+
+2️⃣ Login Screen
+- Email field
+- Password field
+- Login button
+- "Create Account" link
+- Modern Material UI
+- Rounded buttons
+- Soft shadow cards
+- Validation
+
+3️⃣ Register Screen
+- Name
+- Email
+- Password
+- Confirm Password
+- Register button
+- On success → move to Login
+
+4️⃣ Home Screen (Main Earnera Screen)
+Use Bottom Navigation with:
+- Home
+- Wallet
+- Profile
+
+------------------------------------
+🏠 HOME TAB
+------------------------------------
+- Show "Welcome, Username"
+- Show Coin balance card (example: 520 coins)
+- Task list using RecyclerView
+Each task card contains:
+- Task title (Watch Ad, Install App, Survey, Daily Check-in)
+- Coins reward
+- "Start" button
+- Beautiful modern UI
+- When user clicks Start → show Toast "Task Completed" and increase coins locally
+
+------------------------------------
+💰 WALLET TAB
+------------------------------------
+- Show total coins
+- Show equivalent money (100 coins = ₹1)
+- Withdraw button (only UI, no backend)
+- Transaction list dummy data
+
+------------------------------------
+👤 PROFILE TAB
+------------------------------------
+- User name
+- Email
+- Logout button
+
+------------------------------------
+🎨 UI STYLE
+------------------------------------
+- Use Material Design
+- Use gradients
+- Use CardView
+- Use rounded corners
+- Use animations
+- Use beautiful fonts
+- App should look like a real earning startup
+
+------------------------------------
+📁 OUTPUT
+------------------------------------
+Generate:
+- All Java files
+- All XML layout files
+- Navigation
+- RecyclerView Adapter
+- Splash, Login, Register, Home
+
+Make sure:
+- Code is clean
+- No errors
+- Ready to open in Android Studio
+- App should feel like a premium earning app
+
+Do NOT include backend.
+Use dummy tasks and fake coin system in memory.
